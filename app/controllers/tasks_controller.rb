@@ -14,9 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-#    @task = Task.new(task_params)
     @task = current_user.tasks.new(task_params)
-#    @task = user.task.build(task_params)
     if @task.save
       flash[:success] = 'タスクが正常に投稿されました'
       redirect_to @task
@@ -25,12 +23,11 @@ class TasksController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
   end
 
   def update
-
     if @task.update(task_params)
       flash[:success] = 'タスクは正常に更新されました'
       redirect_to @task
