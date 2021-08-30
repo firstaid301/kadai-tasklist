@@ -1,13 +1,7 @@
-<% if current_user.id != @task.user_id %>
-    <p>ログインユーザ: <%= current_user.name %></p>
-    <p>タスクIDとユーザIDが一致しません</p>
-    <%= link_to '一覧に戻る', tasks_path %>
-<% else %>
-    <p>ログインユーザ: <%= current_user.name %></p>
-    <h1>id: <%= @task.id %> のタスク詳細ページ</h1>
-    <p>ステータス: <%= @task.status %></p>
-    <p>タスク<%= @task.content %></p>
-    <%= link_to '一覧に戻る', tasks_path %>
-    <%= link_to 'このタスクを編集する', edit_task_path(@task) %>
-    <%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-<% end %>
+<p>ログインユーザ: <%= current_user.name %></p>
+<h1>id: <%= @task.id %> のタスク詳細ページ</h1>
+<p>ステータス: <%= @task.status %></p>
+<p>タスク<%= @task.content %></p>
+<%= link_to '一覧に戻る', tasks_path %>
+<%= link_to 'このタスクを編集する', edit_task_path(@task) %>
+<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
